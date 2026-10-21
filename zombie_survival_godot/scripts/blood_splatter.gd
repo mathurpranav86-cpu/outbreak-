@@ -1,0 +1,7 @@
+extends CPUParticles2D
+
+func _ready() -> void:
+	emitting = true
+	# Free when done
+	var timer = get_tree().create_timer(lifetime + 0.1)
+	timer.timeout.connect(queue_free)

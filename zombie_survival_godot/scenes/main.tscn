@@ -1,0 +1,36 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmain123456"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_main"]
+[ext_resource type="PackedScene" uid="uid://carena123456" path="res://scenes/world/arena.tscn" id="2_arena"]
+[ext_resource type="PackedScene" uid="uid://cplayer123456" path="res://scenes/player.tscn" id="3_player"]
+[ext_resource type="Script" path="res://scripts/wave_manager.gd" id="4_wave"]
+[ext_resource type="PackedScene" uid="uid://czombiereg123456" path="res://scenes/enemies/zombie_regular.tscn" id="5_zomb_reg"]
+[ext_resource type="PackedScene" uid="uid://czombiefast123456" path="res://scenes/enemies/zombie_fast.tscn" id="6_zomb_fast"]
+[ext_resource type="PackedScene" uid="uid://czombietank123456" path="res://scenes/enemies/zombie_tank.tscn" id="7_zomb_tank"]
+[ext_resource type="PackedScene" uid="uid://chud123456" path="res://scenes/ui/hud.tscn" id="8_hud"]
+[ext_resource type="PackedScene" uid="uid://cpause123456" path="res://scenes/ui/pause_menu.tscn" id="9_pause"]
+[ext_resource type="PackedScene" uid="uid://cgameover123456" path="res://scenes/ui/game_over_screen.tscn" id="10_gameover"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="Arena" parent="." instance=ExtResource("2_arena")]
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Zombies" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_player")]
+position = Vector2(0, 0)
+
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("4_wave")
+regular_zombie_scene = ExtResource("5_zomb_reg")
+fast_zombie_scene = ExtResource("6_zomb_fast")
+tank_zombie_scene = ExtResource("7_zomb_tank")
+
+[node name="HUD" parent="." instance=ExtResource("8_hud")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_pause")]
+
+[node name="GameOverScreen" parent="." instance=ExtResource("10_gameover")]
